@@ -5,8 +5,8 @@
  * This program run the colours of a traffic light over 3 neo pixels.
 */
 
-//variables
-let myStrip: neopixel.Strip = null
+//creates variables to acess to neostrip
+let myStrip = neopixel.create(DigitalPin.P16, 24, NeoPixelMode.RGB)
 
 //clear leds
 basic.clearScreen()
@@ -16,9 +16,11 @@ myStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
 myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
 myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
 
-//traffic light code for led green
+//when a press trafic light runs
 input.onButtonPressed(Button.A, function () {
-    pins.digitalWritePin(DigitalPin.P16, 1)
+pins.digitalWritePin(DigitalPin.P16, 1)
+
+    //traffic light code for led green
     myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
     pause(2000)
 
