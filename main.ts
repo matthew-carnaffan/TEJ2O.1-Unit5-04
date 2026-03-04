@@ -9,9 +9,12 @@
 let myStrip: neopixel.Strip = null
 
 //clear leds
-myStrip.showColor(neopixel.colors(NeoPixelColors.Black))
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
+myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
+myStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
 
 //traffic light code for led green
 input.onButtonPressed(Button.A, function () {
@@ -36,5 +39,5 @@ input.onButtonPressed(Button.A, function () {
     pause(3000)
 
     //traffic light code for the end of the cicle
-    myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+    myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
 })
