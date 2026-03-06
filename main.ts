@@ -7,6 +7,7 @@
 
 //creates variables to acess to neostrip
 let myStrip: neopixel.Strip = null
+myStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
 
 //clear leds
 pins.digitalWritePin(DigitalPin.P16, 1)
@@ -16,30 +17,27 @@ myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
 myStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
 myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
 myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
-
+myStrip.show()
 //when a press trafic light runs
 input.onButtonPressed(Button.A, function () {
 
     //traffic light code for led green
     myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
     pause(2000)
+    myStrip.show()
 
     //traffic light code for led yellow
     myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
     myStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Yellow))
     pause(3000)
+myStrip.show()
 
-    //traffic light code for led red
-    myStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
-    myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
-    pause(5000)
-
-    //traffic light code for walk
+    //trafic light code for led red
+myStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Red))
+    pause(2000)
+myStrip.show()
+//turn off triffic light
     myStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
-    basic.showIcon(IconNames.StickFigure)
-    myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.White))
-    pause(3000)
-
-    //traffic light code for the end of the cicle
-    myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+    myStrip.show()
 })
