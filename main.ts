@@ -6,9 +6,10 @@
 */
 
 //creates variables to acess to neostrip
-let myStrip = neopixel.create(DigitalPin.P16, 24, NeoPixelMode.RGB)
+let myStrip: neopixel.Strip = null
 
 //clear leds
+pins.digitalWritePin(DigitalPin.P16, 1)
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
@@ -18,7 +19,6 @@ myStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
 
 //when a press trafic light runs
 input.onButtonPressed(Button.A, function () {
-pins.digitalWritePin(DigitalPin.P16, 1)
 
     //traffic light code for led green
     myStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
